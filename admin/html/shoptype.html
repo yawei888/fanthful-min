@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><style>*{padding:0;margin:0}table{margin:20px auto;width:1200px;border:1px solid #ddd;border-collapse:collapse;text-align:center}td,th{border:1px solid #ddd;padding:5px 10px}td{padding:0;height:30px}td input{width:100%;height:30px;border:none;background-color:#ffc}td input .check{font-size:12px}</style><script src="../js/jquery.min.js"></script></head><body><h1>商品分类</h1><div class="dataList"><table id="tableList"><!-- <thead>
+                <tr>
+                    <th width="60"><input type="checkbox" id="all"><span>全选</span></th>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead> --><tbody id="content"></tbody></table></div><div class="dataList1"><table id="tableList1"><!-- <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead> --><tbody id="content1"></tbody></table></div><div class="dataList2"><table id="tableList2"><!-- <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead> --><tbody id="content2"></tbody></table></div><div class="dataList3"><table id="tableList3"><!-- <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead> --><tbody id="content3"></tbody></table></div><script>// 获取数据库数据
+        $.ajax({
+            url: './api/sortaddata.php',
+            method: 'get',
+            data: {
+                names: '钢铁侠'
+            },
+            dataType: 'json',
+            async: true,
+            success: function(res) {
+                console.log(res);
+                // 先把数据存放到本地
+                localStorage.setItem('shihuo', JSON.stringify(res));
+                render(res);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        })
+
+        //渲染
+        function render(data) {
+            // data 请求出来的数据 有可能一条数据都没有
+            if (!data.length) {
+                $('.dataList').html(`<figure>
+            <img src="../images/carkong.png" alt="">
+            <figcaption>
+                <p>您的数据库没有商品</p>
+            </figcaption>
+        </figure>`);
+                return
+            }
+
+            let allChecked = data.every(item => {
+                return item.is_select == 1;
+            });
+            let index = 0;
+            let str = '';
+
+            str = `
+            <h2 style="width:150px;color:red">钢铁侠系列</h2>
+            <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead>`
+
+
+            data.forEach(item => {
+                index++;
+                str +=
+                    `<tr>
+                <td>${index}</td>
+                <td>${item.uid}</td>
+                <td contenteditable="true" class="edit" id="xname">${item.name}</td>
+                <td contenteditable="true" class="edit" id="xeng">${item.englishName}</td>
+                <td contenteditable="true" class="edit"><img id="xpic" class="media-object"
+                                src="${item.pic}"
+                                alt="" style="width:100px;height:100px"></td>
+                <td contenteditable="true" class="edit" id="xpic">${item.price}</td>
+            </tr>`
+            })
+
+            $('#content').html(str)
+        }
+
+
+        // 获取数据库数据
+        $.ajax({
+            url: './api/sortaddata.php',
+            method: 'get',
+            data: {
+                names: '怪物猎人'
+            },
+            dataType: 'json',
+            async: true,
+            success: function(res) {
+                console.log(res);
+                // 先把数据存放到本地
+                localStorage.setItem('shihuo', JSON.stringify(res));
+                renderA(res);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        })
+
+        //渲染
+        function renderA(data) {
+            // data 请求出来的数据 有可能一条数据都没有
+            if (!data.length) {
+                $('.dataList').html(`<figure>
+            <img src="../images/carkong.png" alt="">
+            <figcaption>
+                <p>您的数据库没有商品</p>
+            </figcaption>
+        </figure>`);
+                return
+            }
+
+            let allChecked = data.every(item => {
+                return item.is_select == 1;
+            });
+            let index = 0;
+            let str = '';
+
+            str = `
+            <h2 style="width:150px;color:red">怪物猎人系列</h2>
+            <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead>`
+
+
+            data.forEach(item => {
+                index++;
+                str +=
+                    `<tr>
+                <td>${index}</td>
+                <td>${item.uid}</td>
+                <td contenteditable="true" class="edit" id="xname">${item.name}</td>
+                <td contenteditable="true" class="edit" id="xeng">${item.englishName}</td>
+                <td contenteditable="true" class="edit"><img id="xpic" class="media-object"
+                                src="${item.pic}"
+                                alt="" style="width:100px;height:100px"></td>
+                <td contenteditable="true" class="edit" id="xpic">${item.price}</td>
+            </tr>`
+            })
+
+            $('#content1').html(str)
+        }
+
+        // 获取数据库数据
+        $.ajax({
+            url: './api/sortaddata.php',
+            method: 'get',
+            data: {
+                names: '马里奥'
+            },
+            dataType: 'json',
+            async: true,
+            success: function(res) {
+                console.log(res);
+                // 先把数据存放到本地
+                localStorage.setItem('shihuo', JSON.stringify(res));
+                renderB(res);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        })
+
+        //渲染
+        function renderB(data) {
+
+            // data 请求出来的数据 有可能一条数据都没有
+            if (!data.length) {
+                $('.dataList').html(`<figure>
+            <img src="../images/carkong.png" alt="">
+            <figcaption>
+                <p>您的数据库没有商品</p>
+            </figcaption>
+        </figure>`);
+                return
+            }
+
+            let allChecked = data.every(item => {
+                return item.is_select == 1;
+            });
+            let index = 0;
+            let str = '';
+
+            str = `
+            <h2 style="width:150px;color:red">马里奥系列</h2>
+            <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead>`
+
+
+            data.forEach(item => {
+                index++;
+                str +=
+                    `<tr>
+                <td>${index}</td>
+                <td>${item.uid}</td>
+                <td contenteditable="true" class="edit" id="xname">${item.name}</td>
+                <td contenteditable="true" class="edit" id="xeng">${item.englishName}</td>
+                <td contenteditable="true" class="edit"><img id="xpic" class="media-object"
+                                src="${item.pic}"
+                                alt="" style="width:100px;height:100px"></td>
+                <td contenteditable="true" class="edit" id="xpic">${item.price}</td>
+            </tr>`
+            })
+
+            $('#content2').html(str)
+        }
+
+        // 获取数据库数据
+        $.ajax({
+            url: './api/sortaddata.php',
+            method: 'get',
+            data: {
+                names: 'x战警'
+            },
+            dataType: 'json',
+            async: true,
+            success: function(res) {
+                console.log(res);
+                // 先把数据存放到本地
+                localStorage.setItem('shihuo', JSON.stringify(res));
+                renderC(res);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        })
+
+        //渲染
+        function renderC(data) {
+
+            // data 请求出来的数据 有可能一条数据都没有
+            if (!data.length) {
+                $('.dataList').html(`<figure>
+            <img src="../images/carkong.png" alt="">
+            <figcaption>
+                <p>您的数据库没有商品</p>
+            </figcaption>
+        </figure>`);
+                return
+            }
+
+            let allChecked = data.every(item => {
+                return item.is_select == 1;
+            });
+            let index = 0;
+            let str = '';
+
+            str = `
+            <h2 style="width:150px;color:red">x战警系列</h2>
+            <thead>
+                <tr>
+                    <th width="40">序号</th>
+                    <th width="100">商品id</th>
+                    <th width="330">商品名称</th>
+                    <th width="330">英文名称</th>
+                    <th width="200">图片来源</th>
+                    <th width="40">价格</th>
+                </tr>
+            </thead>`
+
+
+            data.forEach(item => {
+                index++;
+                str +=
+                    `<tr>
+                <td>${index}</td>
+                <td>${item.uid}</td>
+                <td contenteditable="true" class="edit" id="xname">${item.name}</td>
+                <td contenteditable="true" class="edit" id="xeng">${item.englishName}</td>
+                <td contenteditable="true" class="edit"><img id="xpic" class="media-object"
+                                src="${item.pic}"
+                                alt="" style="width:100px;height:100px"></td>
+                <td contenteditable="true" class="edit" id="xpic">${item.price}</td>
+            </tr>`
+            })
+
+            $('#content3').html(str)
+        }</script></body></html>

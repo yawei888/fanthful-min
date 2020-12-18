@@ -1,0 +1,123 @@
+[
+    {
+        "ID": 61952,
+        "ProductID": 713,
+        "AttributeID": 19,
+        "Value": "适合3-4人分享",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "人数",
+        "TypeID": 0
+    },
+    {
+        "ID": 61953,
+        "ProductID": 713,
+        "AttributeID": 20,
+        "Value": "15*15cm",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "尺寸",
+        "TypeID": 0
+    },
+    {
+        "ID": 61954,
+        "ProductID": 713,
+        "AttributeID": 21,
+        "Value": "标配5套餐具",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "餐具",
+        "TypeID": 0
+    },
+    {
+        "ID": 61955,
+        "ProductID": 713,
+        "AttributeID": 22,
+        "Value": "提前5小时预订",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "预定",
+        "TypeID": 0
+    },
+    {
+        "ID": 61956,
+        "ProductID": 713,
+        "AttributeID": 26,
+        "Value": "6",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "配送时间",
+        "TypeID": 0
+    },
+    {
+        "ID": 61957,
+        "ProductID": 713,
+        "AttributeID": 27,
+        "Value": "草莓芝士口味",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "口味",
+        "TypeID": 0
+    },
+    {
+        "ID": 61958,
+        "ProductID": 713,
+        "AttributeID": 28,
+        "Value": "0-4℃保藏12小时，5℃最佳食",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "保鲜条件",
+        "TypeID": 0
+    },
+    {
+        "ID": 61959,
+        "ProductID": 713,
+        "AttributeID": 29,
+        "Value": "★★★☆☆☆",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "甜度",
+        "TypeID": 0
+    },
+    {
+        "ID": 61960,
+        "ProductID": 713,
+        "AttributeID": 30,
+        "Value": "不限",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "适合节日",
+        "TypeID": 0
+    },
+    {
+        "ID": 61961,
+        "ProductID": 713,
+        "AttributeID": 31,
+        "Value": "各种人群",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "适合人群",
+        "TypeID": 0
+    },
+    {
+        "ID": 61962,
+        "ProductID": 713,
+        "AttributeID": 32,
+        "Value": "乳脂奶油，草莓，芝士，幼砂糖",
+        "Price": 0,
+        "AddTime": "/Date(1597221233000+0800)/",
+        "UpdateTime": "/Date(1597221233000+0800)/",
+        "Name": "原材料",
+        "TypeID": 0
+    }
+]

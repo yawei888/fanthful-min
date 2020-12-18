@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><script src="../js/ajax.js"></script></head><body><script>//获取本地json文件数据
+        window.onload = function() {
+            var url = "http://yawei.com/fanthful/json/1111.json"
+            var request = new XMLHttpRequest();
+            request.open("get", url); /*设置请求方法与路径*/
+            request.send(null); /*不发送数据到服务器*/
+            request.onload = function() { /*XHR对象获取到返回信息后执行*/
+                if (request.status == 200) { /*返回状态为200，即为数据获取成功*/
+                    var json = JSON.parse(request.responseText);
+                    // for (var i = 0; i < json.length; i++) {
+                    //     console.log(json[i].name);
+                    // }
+                    console.log(json);
+                    inData(json);
+                }
+            }
+        }
+
+        // 通过获取的数据遍历--pAjax传给php
+        function inData(arr) {
+            console.log(arr);
+            arr.forEach(item => {
+                pAjax({
+                    url: "../api/inData.php",
+                    data: {
+                        pic: item.imageStrList[0],
+                        name: item.name,
+                        englishName: item.englishName,
+                        price: item.activityPrice,
+                        buyCount: item.buyCount,
+                        uid: item.id
+                    }
+                }).then(res => {
+                    console.log(res);
+                })
+            })
+        }
+
+
+        //获取本地json文件数据
+        // window.onload = function() {
+        //     var url = "http://yawei.com/fanthful/json/datasss.json"
+        //     var request = new XMLHttpRequest();
+        //     request.open("get", url); /*设置请求方法与路径*/
+        //     request.send(null); /*不发送数据到服务器*/
+        //     request.onload = function() { /*XHR对象获取到返回信息后执行*/
+        //         if (request.status == 200) { /*返回状态为200，即为数据获取成功*/
+        //             var json = JSON.parse(request.responseText);
+        //             // for (var i = 0; i < json.length; i++) {
+        //             //     console.log(json[i].name);
+        //             // }
+        //             console.log(json);
+        //             inData(json.typeThemeList);
+        //         }
+        //     }
+        // }
+
+        // function inData(res1) {
+        //     console.log(res1);
+        //     res1.forEach(item => {
+        //         pAjax({
+        //             url: "../api/inavData.php",
+        //             data: {
+        //                 imgUrl: item.imgUrl,
+        //                 appimgUrl: item.appimgUrl
+        //             }
+        //         }).then(res => {
+        //             console.log(res);
+        //         })
+        //     })
+        // }</script></body></html>
